@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-    print_triangle(2);
-    print_triangle(10);
-    print_triangle(1);
-    print_triangle(0);
+    print_triangel(2);
+    print_triangel(10);
+    print_triangel(1);
+    print_triangel(0);
     return (0);
 }
