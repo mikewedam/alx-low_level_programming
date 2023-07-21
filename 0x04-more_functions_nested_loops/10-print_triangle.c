@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * print_triangel - prints a triangel, followed by a new line
- * @size: size of the triangel
+ * print_triangle - prints a triangle, followed by a new line
+ * @size: size of the triangle
  */
-void print_triangel(int size)
+void print_triangle(int size)
 {
 	if (size <= 0)
 	{
