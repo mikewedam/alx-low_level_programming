@@ -3,7 +3,7 @@
 
 /**
  * main - The main function is the entry of the program.
- * It performs an operation and returns an integer value indicatindicating the execution.
+ * It performs an operation and returns an integer value.
  *
  * Return: 0 on success.
  */
