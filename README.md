@@ -1,1 +1,1 @@
-0x00.c - Hello, World
+Readme for 0x07-pointers_arrays_strings
