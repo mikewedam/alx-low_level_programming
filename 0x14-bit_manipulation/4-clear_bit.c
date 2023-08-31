@@ -9,9 +9,9 @@
  */
 int clear_bit(unsigned long int *num, unsigned int index)
 {
-        if (index > 63)
-                return (-1);
+	if (index > 63)
+		return (-1);
 
-        *num = (~(1UL << index) & *num);
-        return (1);
+	*num = (~(1UL << index) & *num);
+	return (1);
 }
