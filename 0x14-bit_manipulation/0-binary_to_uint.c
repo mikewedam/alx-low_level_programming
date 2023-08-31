@@ -6,7 +6,7 @@
  *
  * Return: The decimal equivalent of the binary string.
  */
-unsigned int convert_binary_to_decimal(const char *binary_str)
+unsigned int binary_to_uint(const char *binary_str)
 {
 	int index;
 	unsigned int decimal_value = 0;
