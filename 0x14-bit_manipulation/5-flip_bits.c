@@ -8,7 +8,7 @@
  *
  * Return: number of bits to change
  */
-unsigned int count_bits(unsigned long int num1, unsigned long int num2)
+unsigned int flip_bits(unsigned long int num1, unsigned long int num2)
 {
 	int i, count = 0;
 	unsigned long int current;
