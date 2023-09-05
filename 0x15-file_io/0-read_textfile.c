@@ -1,53 +1,28 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 
 /**
- * read_and_print_text - Read text from a file and print it to STDOUT.
- * @filename: The name of the text file to be read.
- * @max_letters: The maximum number of letters to be read and printed.
- * Return: The actual number of bytes read and printed on success,
- *         or -1 when the function fails or if the filename is NULL.
+ * read_textfile- Read text file print to STDOUT.
+ * @filename: text file being read
+ * @letters: number of letters to be read
+ * Return: w- actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
  */
-ssize_t read_textfile(const char *filename, size_t max_letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t bytes_read;
+	char *buf;
+	ssize_t fd;
+	ssize_t w;
+	ssize_t t;
 
-	char *buffer;
-	int file_descriptor;
-	ssize_t total_bytes_read = 0;
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	buf = malloc(sizeof(char) * letters);
+	t = read(fd, buf, letters);
+	w = write(STDOUT_FILENO, buf, t);
 
-	if (filename == NULL)
-		return (-1);
-
-	file_descriptor = open(filename, O_RDONLY);
-	if (file_descriptor == -1)
-		return (-1);
-
-	buffer = malloc(max_letters);
-	if (buffer == NULL)
-	{
-		close(file_descriptor);
-		return (-1);
-	}
-
-
-	while ((bytes_read = read(file_descriptor, buffer, max_letters)) > 0)
-	{
-		ssize_t bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-		if (bytes_written != bytes_read)
-		{
-			free(buffer);
-			close(file_descriptor);
-			return (-1);
-		}
-		total_bytes_read += bytes_read;
-	}
-
-	free(buffer);
-	close(file_descriptor);
-
-	return (total_bytes_read);
+	free(buf);
+	close(fd);
+	return (w);
 }
