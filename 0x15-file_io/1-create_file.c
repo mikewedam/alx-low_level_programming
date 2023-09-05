@@ -1,6 +1,4 @@
 #include "main.h"
-#include <fcntl.h>
-#include <unistd.h>
 
 /**
  * create_or_truncate_file - Creates a new file or truncates an existing one.
